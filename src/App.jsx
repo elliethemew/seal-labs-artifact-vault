@@ -155,6 +155,10 @@ function App() {
             )}
           </main>
 
+          <footer className="app-footer">
+            <p className="copyright">© 2026 SEAL LABS</p>
+          </footer>
+
           <PreviewModal
             artifact={selectedArtifact}
             onClose={() => setSelectedArtifact(null)}
