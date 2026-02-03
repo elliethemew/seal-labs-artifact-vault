@@ -78,32 +78,44 @@ body {
   background-color: #05060a;
 }
 
-/* Background Layer (Safe Premium - No Banding) */
-/* Background Layer (Safe Premium - No Banding) */
-/* Background Layer (Safe Premium - Option A) */
+/* Background Layer (Luxury Gradients) */
 .bg-layer {
   position: fixed;
   inset: 0;
-  z-index: -3;
-  background-color: #05060a;
+  z-index: -4;
+  background-color: #06070a;
   background-image:
-    radial-gradient(900px 650px at 18% 14%, rgba(56, 189, 248, .08) 0%, transparent 62%),
-    radial-gradient(900px 650px at 85% 22%, rgba(99, 102, 241, .07) 0%, transparent 64%),
-    radial-gradient(1100px 800px at 50% 110%, rgba(20, 184, 166, .05) 0%, transparent 60%),
-    linear-gradient(180deg, #05060a 0%, #05060a 55%, #070b16 100%);
+    /* Corner glow - Cyan top-left */
+    radial-gradient(900px 500px at 20% -10%, rgba(56, 189, 248, 0.10) 0%, transparent 60%),
+    /* Corner glow - Indigo top-right */
+    radial-gradient(900px 500px at 85% 0%, rgba(99, 102, 241, 0.10) 0%, transparent 55%),
+    /* Center highlight */
+    radial-gradient(800px 600px at 50% 35%, rgba(255, 255, 255, 0.04) 0%, transparent 65%),
+    /* Top linear fade */
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 35%);
   pointer-events: none;
 }
 
-/* Vignette Layer (Focus) */
+/* Vignette Layer (Dark edges, bright center) */
 .bg-vignette {
   position: fixed;
   inset: 0;
   z-index: -2;
   pointer-events: none;
-  background: radial-gradient(1200px 700px at 50% 18%,
+  background: radial-gradient(1200px 800px at 50% 35%,
       rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, .35) 72%,
-      rgba(0, 0, 0, .65) 100%);
+      rgba(0, 0, 0, 0.55) 70%,
+      rgba(0, 0, 0, 0.85) 100%);
+}
+
+/* Subtle Grain Overlay (Optional) */
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
 /* Stale body vignetter removed */
@@ -135,10 +147,9 @@ button {
 
 /* Utilities */
 .container {
-  max-width: 1280px;
-  /* max-w-7xl roughly, user asked for max-w-6xl OR 7xl. */
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
+  padding: 0 clamp(20px, 4vw, 56px);
 }
 
 .text-muted {
@@ -260,13 +271,63 @@ button {
 }
 
 /* Header */
+/* Header */
 .app-header {
   padding-top: var(--spacing-xl);
   padding-bottom: var(--spacing-xl);
-  /* padding-left/right inherited from .container */
   margin-bottom: var(--spacing-md);
-  /* Removed hard divider */
-  /* border-bottom: 1px solid var(--color-border); */
+}
+
+.logo-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+/* ... logo wrapper styles ... */
+
+.app-header h1 {
+  font-size: 20px;
+  /* Condensed slightly if needed, or keep 24 */
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+  margin-bottom: 2px;
+  /* Pull subtitle closer */
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.brand-logo-wrap {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin-top: 2px;
+  /* Optical alignment with title cap-height */
+}
+
+.app-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  opacity: 0.92;
+  filter: contrast(1.05) brightness(1.08);
+}
+
+@media (max-width: 640px) {
+  /* Keep consistent */
 }
 
 .app-header h1 {
@@ -286,8 +347,10 @@ button {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(8px);
+  /* Glass effect: See-through to match background */
+  background: rgba(5, 6, 10, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   padding-top: var(--spacing-md);
   padding-bottom: var(--spacing-sm);
   margin-bottom: var(--spacing-md);
@@ -595,8 +658,21 @@ button {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--spacing-md);
-  /* Reduced from lg for tighter fit */
   padding-bottom: var(--spacing-xl);
+  position: relative;
+  margin-top: 18px;
+  padding-top: 18px;
+}
+
+/* Card zone glow - makes negative space feel intentional */
+.artifact-grid::before {
+  content: "";
+  position: absolute;
+  inset: -40px -20px -120px -20px;
+  background: radial-gradient(800px 300px at 50% 0%, rgba(255, 255, 255, 0.05), transparent 70%);
+  pointer-events: none;
+  opacity: 0.7;
+  z-index: -1;
 }
 
 /* Card */

@@ -3,11 +3,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import ArtifactList from './components/ArtifactList';
 import PreviewModal from './components/PreviewModal';
 import TagFilter from './components/TagFilter';
-
-const FILTERS = {
-  function: ['Engineering', 'Product', 'MKT', 'BD', 'HR'],
-  source: ['claude', 'gemini', 'manual'] // Optional based on data
-};
+import FunctionFilter from './components/FunctionFilter';
 
 function App() {
   const [artifacts, setArtifacts] = useState([]);
@@ -55,6 +51,7 @@ function App() {
     <>
       {/* Background Layers - Fixed & Behind */}
       <div className="bg-layer" aria-hidden="true" />
+      <div className="bg-noise" aria-hidden="true" />
       <div className="bg-vignette" aria-hidden="true" />
 
       {/* Main App Content - Relative & Above */}
@@ -62,8 +59,18 @@ function App() {
         <div className="app-container">
           <header className="app-header container">
             <div className="logo-section">
-              <h1>Seal Labs Artifact Vault</h1>
-              <p className="subtitle">Internal showcase of HTML artifacts & knowledge.</p>
+              <div className="brand-logo-wrap">
+                <img
+                  src="/assets/logo.png"
+                  alt="Seal Labs Logo"
+                  className="app-logo"
+                  onError={(e) => e.target.style.display = 'none'}
+                />
+              </div>
+              <div>
+                <h1>Seal Labs Artifact Vault</h1>
+                <p className="subtitle">Internal showcase of HTML artifacts & knowledge.</p>
+              </div>
             </div>
           </header>
 
@@ -85,22 +92,10 @@ function App() {
                   />
                 </div>
 
-                <div className="relative" style={{ display: 'flex', alignItems: 'center' }}>
-                  <select
-                    value={selectedFunction}
-                    onChange={e => setSelectedFunction(e.target.value)}
-                    className="filter-select"
-                    style={{ appearance: 'none', paddingRight: '32px' }}
-                  >
-                    <option value="">All Functions</option>
-                    {FILTERS.function.map(f => (
-                      <option key={f} value={f}>{f}</option>
-                    ))}
-                  </select>
-                  <svg className="icon-chevron absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ pointerEvents: 'none' }}>
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-                </div>
+                <FunctionFilter
+                  selectedFunction={selectedFunction}
+                  onFunctionChange={setSelectedFunction}
+                />
 
                 <TagFilter
                   allTags={allTags}
