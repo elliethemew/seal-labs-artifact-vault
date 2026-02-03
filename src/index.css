@@ -1,6 +1,18 @@
 :root {
   /* Brand Colors - Deep & Premium */
-  --color-bg: #0a0a0a;
+  /* Midnight base */
+  --bg-0: #05060a;
+  --bg-1: #070b16;
+  --bg-2: #061a24;
+
+  /* Glow accents (tune these later) */
+  --glow-cyan: 0, 209, 255;
+  --glow-blue: 91, 140, 255;
+  --glow-emerald: 40, 255, 200;
+  --glow-purple: 155, 110, 255;
+
+  --color-bg: var(--bg-0);
+  /* Map semantic variable to new base */
   --color-bg-subtle: #111111;
   --color-surface: #1a1a1a;
   --color-surface-hover: #252525;
@@ -53,12 +65,60 @@
   padding: 0;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   font-family: var(--font-family);
-  background-color: var(--color-bg);
-  color: var(--color-text-main);
+  color: rgba(255, 255, 255, .92);
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  background-color: #05060a;
+}
+
+/* Background Layer (Safe Premium - No Banding) */
+/* Background Layer (Safe Premium - No Banding) */
+/* Background Layer (Safe Premium - Option A) */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background-color: #05060a;
+  background-image:
+    radial-gradient(900px 650px at 18% 14%, rgba(56, 189, 248, .08) 0%, transparent 62%),
+    radial-gradient(900px 650px at 85% 22%, rgba(99, 102, 241, .07) 0%, transparent 64%),
+    radial-gradient(1100px 800px at 50% 110%, rgba(20, 184, 166, .05) 0%, transparent 60%),
+    linear-gradient(180deg, #05060a 0%, #05060a 55%, #070b16 100%);
+  pointer-events: none;
+}
+
+/* Vignette Layer (Focus) */
+.bg-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: radial-gradient(1200px 700px at 50% 18%,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, .35) 72%,
+      rgba(0, 0, 0, .65) 100%);
+}
+
+/* Stale body vignetter removed */
+body::after,
+body::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Noise removed to prevent diagonal banding artifacts */
+
+@media (max-width: 768px) {
+  /* On mobile, usually fixed is annoying, but for a separate div it's fine. 
+     If issues arise, we can set .app-bg to absolute/scroll. 
+     Keeping as fixed for now as it's a div, not body bg. */
 }
 
 a {
@@ -644,8 +704,9 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 1000;
   display: flex;
   align-items: center;
