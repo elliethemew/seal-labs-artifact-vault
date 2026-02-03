@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seal Labs | AI Workflow: Engineer Sharing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .tab-active { border-bottom: 2px solid #2563EB; color: #2563EB; font-weight: 600; }
+        .tab-inactive { color: #6B7280; }
+        .tab-inactive:hover { color: #111827; }
+        .fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Quiz Styles */
+        .quiz-option:hover { background-color: #EFF6FF; border-color: #3B82F6; }
+        .quiz-selected { background-color: #DBEAFE; border-color: #2563EB; font-weight: 600; }
+        .correct { background-color: #D1FAE5; border-color: #059669; color: #065F46; }
+        .incorrect { background-color: #FEE2E2; border-color: #DC2626; color: #991B1B; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 selection:bg-blue-100 selection:text-blue-900">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center gap-2">
+                        <div class="w-8 h-8 bg-black rounded flex items-center justify-center text-white font-bold">S</div>
+                        <span class="font-bold text-lg tracking-tight">Seal Labs | AI Academy</span>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <span class="text-xs font-medium px-2 py-1 bg-blue-100 text-blue-800 rounded-full">Engineering Track</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4 tracking-tight">From Chatbot to Agentic Workflow</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Stop just "talking" to AI. Learn how Seal Labs Engineering uses <span class="font-semibold text-gray-900">Claude Code</span> to read, act, and verify tasks autonomously in the terminal.
+            </p>
+        </div>
+
+        <!-- The Core Concept: Agentic Loop -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-12">
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                <i data-lucide="cpu" class="w-5 h-5 text-blue-600"></i>
+                The Core Concept: The Agentic Loop
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center relative">
+                <!-- Arrow Connectors (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-1/3 w-1/3 border-t-2 border-gray-200 -z-10 border-dashed"></div>
+                <div class="hidden md:block absolute top-1/2 left-2/3 w-1/3 border-t-2 border-gray-200 -z-10 border-dashed"></div>
+
+                <!-- Step 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 relative group hover:border-blue-300 transition-all">
+                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold group-hover:scale-110 transition-transform">1</div>
+                    <h3 class="font-bold text-gray-900 mb-2">GATHER CONTEXT</h3>
+                    <p class="text-sm text-gray-500">Reads files, documentation, and web info.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 relative group hover:border-blue-300 transition-all">
+                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold group-hover:scale-110 transition-transform">2</div>
+                    <h3 class="font-bold text-gray-900 mb-2">TAKE ACTION</h3>
+                    <p class="text-sm text-gray-500">Edits code, creates files, runs commands.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 relative group hover:border-blue-300 transition-all">
+                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold group-hover:scale-110 transition-transform">3</div>
+                    <h3 class="font-bold text-gray-900 mb-2">VERIFY RESULTS</h3>
+                    <p class="text-sm text-gray-500">Runs tests. If it fails, it fixes itself.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive 4 Pillars -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">The Extension Layer: 4 Ways to Customize</h2>
+            <p class="text-gray-600 mb-6">Click the tabs below to understand the 4 pillars of the Seal Labs AI architecture.</p>
+
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <!-- Tabs -->
+                <div class="flex border-b border-gray-200 overflow-x-auto">
+                    <button onclick="switchTab('memory')" id="tab-memory" class="px-6 py-4 text-sm font-medium whitespace-nowrap tab-active">
+                        1. Memory (CLAUDE.md)
+                    </button>
+                    <button onclick="switchTab('skills')" id="tab-skills" class="px-6 py-4 text-sm font-medium whitespace-nowrap tab-inactive">
+                        2. Skills
+                    </button>
+                    <button onclick="switchTab('subagents')" id="tab-subagents" class="px-6 py-4 text-sm font-medium whitespace-nowrap tab-inactive">
+                        3. Subagents
+                    </button>
+                    <button onclick="switchTab('hooks')" id="tab-hooks" class="px-6 py-4 text-sm font-medium whitespace-nowrap tab-inactive">
+                        4. Hooks
+                    </button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="p-8 min-h-[300px]">
+                    <!-- Memory Content -->
+                    <div id="content-memory" class="fade-in">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-indigo-100 text-indigo-700 rounded-lg">
+                                <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">The Constitution ("Always On")</h3>
+                                <p class="text-gray-600 mb-4">A markdown file at the project root that loads automatically every session. This is where we enforce our "Boring Solutions" rules.</p>
+                                <div class="bg-gray-900 rounded-lg p-4 text-gray-100 font-mono text-sm mb-4">
+                                    <p class="text-gray-400"># CLAUDE.md Example</p>
+                                    <br>
+                                    <p><span class="text-pink-400">-</span> Use pnpm, not npm</p>
+                                    <p><span class="text-pink-400">-</span> Follow our 'Boring Solutions' API conventions</p>
+                                    <p><span class="text-pink-400">-</span> Never hardcode secrets</p>
+                                </div>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                                    <p class="text-sm text-yellow-800"><strong>For Non-Tech:</strong> Think of this as your <strong>"Brand Voice"</strong> document. Always upload it first so the AI knows who we are.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Content -->
+                    <div id="content-skills" class="hidden fade-in">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-green-100 text-green-700 rounded-lg">
+                                <i data-lucide="wrench" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">The Toolbox ("On Demand")</h3>
+                                <p class="text-gray-600 mb-4">Reusable workflows triggered by a specific command. Use this for complex, repetitive tasks like deployment or reviews.</p>
+                                <div class="bg-gray-100 rounded-lg p-4 border border-gray-200 mb-4">
+                                    <h4 class="font-bold text-gray-800 text-sm mb-2">Example Use Cases:</h4>
+                                    <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                        <li><code>/deploy</code> - Triggers the safe deployment checklist.</li>
+                                        <li><code>/onboard</code> - Pulls documentation for a new team member.</li>
+                                        <li><code>/review</code> - Checks code against style guide.</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                                    <p class="text-sm text-yellow-800"><strong>For Non-Tech:</strong> These are your <strong>"Saved Prompts."</strong> E.g., a prompt that automatically formats a raw meeting transcript into a structured Notion summary.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Subagents Content -->
+                    <div id="content-subagents" class="hidden fade-in">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-purple-100 text-purple-700 rounded-lg">
+                                <i data-lucide="users" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">The Contractors ("Isolated Work")</h3>
+                                <p class="text-gray-600 mb-4">Isolated workers spawned to perform heavy tasks without bloating your main chat context. Great for research.</p>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div class="p-4 bg-gray-50 rounded border border-gray-100">
+                                        <span class="block font-bold text-gray-900 text-sm">Main Context</span>
+                                        <span class="text-xs text-gray-500">Stays clean and fast.</span>
+                                    </div>
+                                    <div class="p-4 bg-purple-50 rounded border border-purple-100">
+                                        <span class="block font-bold text-purple-900 text-sm">Subagent</span>
+                                        <span class="text-xs text-purple-600">Reads 50 files → Returns 1 summary.</span>
+                                    </div>
+                                </div>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                                    <p class="text-sm text-yellow-800"><strong>For Non-Tech:</strong> Use this logic for <strong>"Deep Research."</strong> Ask the AI to research 10 competitors and only give you the summary table, ignoring the noise.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hooks Content -->
+                    <div id="content-hooks" class="hidden fade-in">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-red-100 text-red-700 rounded-lg">
+                                <i data-lucide="zap" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">The Safety Rails ("Automation")</h3>
+                                <p class="text-gray-600 mb-4">Deterministic scripts that run automatically on events. No AI hallucination involved here.</p>
+                                <div class="bg-gray-100 rounded-lg p-4 border border-gray-200 mb-4">
+                                    <h4 class="font-bold text-gray-800 text-sm mb-2">Key Triggers:</h4>
+                                    <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                        <li><strong>PostToolUse:</strong> Auto-format code after every AI edit.</li>
+                                        <li><strong>PreToolUse:</strong> Block dangerous commands like <code>rm -rf</code>.</li>
+                                        <li><strong>Stop:</strong> Auto-commit changes when task completes.</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                                    <p class="text-sm text-yellow-800"><strong>For Non-Tech:</strong> This is like <strong>Zapier/Make</strong> automations. E.g., "When a task is marked Done in Lark, automatically email the client."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW: Putting It Together (Visualizing the Code Review Example) -->
+        <div class="bg-gray-900 rounded-xl shadow-lg p-8 mb-12 text-white">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                <i data-lucide="layers" class="w-6 h-6 text-blue-400"></i>
+                Putting It Together: The Code Review Workflow
+            </h2>
+            <p class="text-gray-300 mb-8">Real power comes from combining features. Here is what happens when a Seal Labs Engineer types <code>/review</code>.</p>
+            
+            <div class="grid md:grid-cols-4 gap-4">
+                <!-- Step 1 -->
+                <div class="bg-gray-800 p-4 rounded-lg border border-gray-700 relative">
+                    <div class="absolute -top-3 -right-3 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">START</div>
+                    <div class="text-blue-400 font-mono text-xs mb-2">CLAUDE.MD</div>
+                    <h4 class="font-bold text-sm mb-2">1. Memory Checks</h4>
+                    <p class="text-xs text-gray-400">"Is this code 'Boring'? Does it follow conventions?"</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                    <div class="text-green-400 font-mono text-xs mb-2">/REVIEW SKILL</div>
+                    <h4 class="font-bold text-sm mb-2">2. Checklist Runs</h4>
+                    <p class="text-xs text-gray-400">Loads the 15-point Security & Style checklist.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                    <div class="text-purple-400 font-mono text-xs mb-2">SUBAGENTS</div>
+                    <h4 class="font-bold text-sm mb-2">3. Deep Scan</h4>
+                    <p class="text-xs text-gray-400">Spawns 3 isolated agents: Security, Performance, Style.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                    <div class="text-red-400 font-mono text-xs mb-2">HOOKS</div>
+                    <h4 class="font-bold text-sm mb-2">4. Auto-Fix</h4>
+                    <p class="text-xs text-gray-400">PostToolUse hook runs Prettier to fix formatting automatically.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Plan Section (Existing) -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <!-- For Engineers -->
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <i data-lucide="terminal" class="w-5 h-5 text-gray-700"></i>
+                    Action Plan: Engineers
+                </h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                        <div class="w-5 h-5 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mt-0.5">1</div>
+                        <p class="text-sm text-gray-600"><strong>Create CLAUDE.md:</strong> Add this to your repo root today. Define your "Boring Solution" constraints.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-5 h-5 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mt-0.5">2</div>
+                        <p class="text-sm text-gray-600"><strong>Use Subagents:</strong> Stop cluttering context. Use subagents for any task involving >10 files.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- For MKT / BD / HR -->
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <i data-lucide="briefcase" class="w-5 h-5 text-gray-700"></i>
+                    Action Plan: MKT / BD / HR
+                </h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                        <div class="w-5 h-5 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xs font-bold mt-0.5">1</div>
+                        <p class="text-sm text-gray-600"><strong>Create Context Docs:</strong> Don't start from zero. Have a `BRAND_VOICE.txt` ready to paste.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-5 h-5 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xs font-bold mt-0.5">2</div>
+                        <p class="text-sm text-gray-600"><strong>Build Prompt Library:</strong> Save your best prompts. Share them in the wiki. This is your version of "Skills."</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- NEW: Interactive Knowledge Review Button -->
+            <div class="col-span-2 text-center py-8">
+                <button onclick="startQuiz()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2 mx-auto">
+                    <i data-lucide="check-circle" class="w-5 h-5"></i>
+                    Start Knowledge Review
+                </button>
+            </div>
+            
+            <!-- Quiz Modal (Hidden by default) -->
+            <div id="quiz-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
+                <div class="bg-white rounded-xl max-w-lg w-full p-8 shadow-2xl relative">
+                    <button onclick="closeQuiz()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                    
+                    <h3 class="text-2xl font-bold mb-6">Quick Knowledge Check</h3>
+                    
+                    <!-- Question 1 -->
+                    <div id="q1" class="quiz-step">
+                        <p class="font-medium text-gray-800 mb-4">1. Where should you define "Always On" rules like coding conventions or Brand Voice?</p>
+                        <div class="space-y-2">
+                            <button onclick="checkAnswer('q1', 'a')" class="quiz-option w-full text-left p-3 border rounded-lg">A. In a Subagent</button>
+                            <button onclick="checkAnswer('q1', 'b')" class="quiz-option w-full text-left p-3 border rounded-lg">B. In CLAUDE.md (Memory)</button>
+                            <button onclick="checkAnswer('q1', 'c')" class="quiz-option w-full text-left p-3 border rounded-lg">C. In a Hook</button>
+                        </div>
+                        <p id="feedback-q1" class="mt-2 text-sm font-bold hidden"></p>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div id="q2" class="quiz-step hidden">
+                        <p class="font-medium text-gray-800 mb-4">2. Which feature is best for researching 50+ files without confusing the main chat?</p>
+                        <div class="space-y-2">
+                            <button onclick="checkAnswer('q2', 'a')" class="quiz-option w-full text-left p-3 border rounded-lg">A. Subagents</button>
+                            <button onclick="checkAnswer('q2', 'b')" class="quiz-option w-full text-left p-3 border rounded-lg">B. Skills</button>
+                            <button onclick="checkAnswer('q2', 'c')" class="quiz-option w-full text-left p-3 border rounded-lg">C. Memory</button>
+                        </div>
+                        <p id="feedback-q2" class="mt-2 text-sm font-bold hidden"></p>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div id="q3" class="quiz-step hidden">
+                        <p class="font-medium text-gray-800 mb-4">3. "Hooks" involve AI decision making.</p>
+                        <div class="space-y-2">
+                            <button onclick="checkAnswer('q3', 'a')" class="quiz-option w-full text-left p-3 border rounded-lg">A. True</button>
+                            <button onclick="checkAnswer('q3', 'b')" class="quiz-option w-full text-left p-3 border rounded-lg">B. False (They are deterministic scripts)</button>
+                        </div>
+                        <p id="feedback-q3" class="mt-2 text-sm font-bold hidden"></p>
+                    </div>
+
+                     <!-- Completion -->
+                     <div id="q-finish" class="quiz-step hidden text-center">
+                        <div class="text-green-500 mb-4 flex justify-center"><i data-lucide="award" class="w-12 h-12"></i></div>
+                        <h4 class="text-xl font-bold mb-2">Review Complete!</h4>
+                        <p class="text-gray-600 mb-6">You are ready to apply the Agentic Workflow.</p>
+                        <button onclick="closeQuiz()" class="bg-gray-900 text-white px-6 py-2 rounded-lg">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center border-t border-gray-200 pt-8 pb-8">
+            <p class="text-gray-500 mb-4">Have questions about implementing this workflow?</p>
+            <a href="#" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
+                <i data-lucide="message-square" class="w-4 h-4"></i>
+                Drop a question in the Lark Thread
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Tab Switching Logic
+        function switchTab(tabName) {
+            const contents = ['memory', 'skills', 'subagents', 'hooks'];
+            contents.forEach(c => {
+                document.getElementById('content-' + c).classList.add('hidden');
+                const tabBtn = document.getElementById('tab-' + c);
+                tabBtn.classList.remove('tab-active');
+                tabBtn.classList.add('tab-inactive');
+            });
+            document.getElementById('content-' + tabName).classList.remove('hidden');
+            const activeBtn = document.getElementById('tab-' + tabName);
+            activeBtn.classList.remove('tab-inactive');
+            activeBtn.classList.add('tab-active');
+        }
+
+        // Quiz Logic
+        function startQuiz() {
+            document.getElementById('quiz-modal').classList.remove('hidden');
+            document.getElementById('q1').classList.remove('hidden');
+            document.getElementById('q2').classList.add('hidden');
+            document.getElementById('q3').classList.add('hidden');
+            document.getElementById('q-finish').classList.add('hidden');
+        }
+
+        function closeQuiz() {
+            document.getElementById('quiz-modal').classList.add('hidden');
+        }
+
+        function checkAnswer(qId, answer) {
+            const correctAnswers = { 'q1': 'b', 'q2': 'a', 'q3': 'b' };
+            const feedback = document.getElementById('feedback-' + qId);
+            const isCorrect = answer === correctAnswers[qId];
+
+            feedback.classList.remove('hidden');
+            if (isCorrect) {
+                feedback.textContent = "Correct! ✅";
+                feedback.className = "mt-2 text-sm font-bold text-green-600";
+                setTimeout(() => {
+                    document.getElementById(qId).classList.add('hidden');
+                    const nextMap = {'q1': 'q2', 'q2': 'q3', 'q3': 'q-finish'};
+                    document.getElementById(nextMap[qId]).classList.remove('hidden');
+                    feedback.classList.add('hidden');
+                }, 1000);
+            } else {
+                feedback.textContent = "Try again ❌";
+                feedback.className = "mt-2 text-sm font-bold text-red-600";
+            }
+        }
+    </script>
+</body>
+</html>

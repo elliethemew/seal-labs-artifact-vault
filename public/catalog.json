@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Seal Labs AI Academy: Engineering Track",
+    "function": "Engineering",
+    "description": "Interactive guide on using Claude Code for agentic workflows, covering Memory, Skills, Subagents, and Hooks.",
+    "tags": [
+      "ai-workflow",
+      "claude-code",
+      "agentic-loop",
+      "productivity",
+      "coding-standards"
+    ],
+    "source": "Week 1 | AI workflow - Engineer Sharing",
+    "author": "Ellie",
+    "createdAt": "2026-02-03",
+    "id": "engineering/2026-01-29_Chatbot to Agentic Workflow",
+    "path": "/artifacts/engineering/2026-01-29_Chatbot to Agentic Workflow/index.html"
+  },
+  {
+    "title": "Research: AI Adoption & The 'Leapfrog' Effect",
+    "function": "HR",
+    "description": "Analysis of how SEA youth use AI for economic survival (coding, freelancing) rather than just leisure. Highlights the 'Faceless Creator' economy using Midjourney/CapCut.",
+    "tags": [
+      "ai",
+      "adoption-trends",
+      "gig-economy",
+      "vietnam"
+    ],
+    "source": "gemini",
+    "author": "Ellie",
+    "createdAt": "2026-02-03",
+    "id": "hr/2026-02-03_research-on-ai-capability",
+    "path": "/artifacts/hr/2026-02-03_research-on-ai-capability/index.html"
+  },
+  {
+    "title": "Seal Labs AI Academy: Marketing Track",
+    "function": "MKT",
+    "description": "Guide on the 'No-Code to Low-Code' pipeline using Aura, Claude, and Google Apps Script for the 7K Mobile landing page.",
+    "tags": [
+      "marketing",
+      "aura-build",
+      "landing-page",
+      "google-apps-script",
+      "workflow"
+    ],
+    "source": "Week 1 | AI workflow - MKT Sharing",
+    "author": "Ellie",
+    "createdAt": "2026-02-03",
+    "id": "marketing/2026-01-29_mkt-web-app-workflow",
+    "path": "/artifacts/marketing/2026-01-29_mkt-web-app-workflow/index.html"
+  }
+]

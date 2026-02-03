@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seal Labs | AI Workflow: MKT & Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tab-active {
+            border-bottom: 2px solid #8B5CF6;
+            color: #7C3AED;
+            font-weight: 600;
+        }
+
+        .tab-inactive {
+            color: #6B7280;
+        }
+
+        .tab-inactive:hover {
+            color: #111827;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Quiz Styles */
+        .quiz-option:hover {
+            background-color: #F3F4F6;
+            border-color: #8B5CF6;
+        }
+
+        .quiz-selected {
+            background-color: #EDE9FE;
+            border-color: #7C3AED;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 selection:bg-purple-100 selection:text-purple-900">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center gap-2">
+                        <div class="w-8 h-8 bg-black rounded flex items-center justify-center text-white font-bold">S
+                        </div>
+                        <span class="font-bold text-lg tracking-tight">Seal Labs | AI Academy</span>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <span class="text-xs font-medium px-2 py-1 bg-purple-100 text-purple-800 rounded-full">Marketing
+                        Track</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4 tracking-tight">The "No-Code" to "Low-Code" Pipeline</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                How the MKT team built the <strong>7K Mobile Landing Page</strong> in record time using Aura, Claude,
+                and Gemini.
+            </p>
+        </div>
+
+        <!-- The Pipeline Visualization -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-12">
+            <h2 class="text-xl font-bold mb-8 flex items-center gap-2">
+                <i data-lucide="layout-template" class="w-5 h-5 text-purple-600"></i>
+                The 5-Step Production Line
+            </h2>
+
+            <div class="relative">
+                <!-- Connector Line -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-100 -translate-y-1/2 z-0"></div>
+
+                <div class="grid md:grid-cols-5 gap-4 relative z-10">
+                    <!-- Step 1 -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-2 border-gray-100 hover:border-purple-300 transition-all group text-center">
+                        <div
+                            class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold group-hover:scale-110 transition-transform">
+                            1</div>
+                        <h3 class="font-bold text-sm mb-1">Wireframe</h3>
+                        <p class="text-xs text-gray-500 mb-2">Structure + Script</p>
+                        <span class="inline-block px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] rounded">Figma +
+                            Gemini</span>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-2 border-purple-500 shadow-lg shadow-purple-100 scale-105 text-center">
+                        <div
+                            class="w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+                            2</div>
+                        <h3 class="font-bold text-sm mb-1">Visual</h3>
+                        <p class="text-xs text-gray-500 mb-2">Prompt-to-UI</p>
+                        <span
+                            class="inline-block px-2 py-0.5 bg-purple-100 text-purple-700 text-[10px] rounded font-bold">Aura.build</span>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-2 border-gray-100 hover:border-purple-300 transition-all group text-center">
+                        <div
+                            class="w-8 h-8 bg-gray-100 text-gray-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold group-hover:scale-110 transition-transform">
+                            3</div>
+                        <h3 class="font-bold text-sm mb-1">Code</h3>
+                        <p class="text-xs text-gray-500 mb-2">Refine Logic</p>
+                        <span class="inline-block px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] rounded">Cursor +
+                            Claude</span>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-2 border-gray-100 hover:border-purple-300 transition-all group text-center">
+                        <div
+                            class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold group-hover:scale-110 transition-transform">
+                            4</div>
+                        <h3 class="font-bold text-sm mb-1">Improve</h3>
+                        <p class="text-xs text-gray-500 mb-2">Debug Visuals</p>
+                        <span class="inline-block px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] rounded">Screenshot
+                            Fix</span>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-2 border-gray-100 hover:border-purple-300 transition-all group text-center">
+                        <div
+                            class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold group-hover:scale-110 transition-transform">
+                            5</div>
+                        <h3 class="font-bold text-sm mb-1">Deploy</h3>
+                        <p class="text-xs text-gray-500 mb-2">Live URL</p>
+                        <span
+                            class="inline-block px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] rounded">Vercel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Tabs -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">Deep Dive: The 3 Key Innovations</h2>
+            <p class="text-gray-600 mb-6">Click to learn the specific techniques used in the 7K Mobile project.</p>
+
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <!-- Tabs -->
+                <div class="flex border-b border-gray-200 overflow-x-auto">
+                    <button onclick="switchTab('aura')" id="tab-aura"
+                        class="px-6 py-4 text-sm font-medium whitespace-nowrap tab-active">
+                        1. The Aura Strategy
+                    </button>
+                    <button onclick="switchTab('backend')" id="tab-backend"
+                        class="px-6 py-4 text-sm font-medium whitespace-nowrap tab-inactive">
+                        2. The Backend Hack
+                    </button>
+                    <button onclick="switchTab('debug')" id="tab-debug"
+                        class="px-6 py-4 text-sm font-medium whitespace-nowrap tab-inactive">
+                        3. Screenshot Debugging
+                    </button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="p-8 min-h-[350px]">
+                    <!-- Aura Content -->
+                    <div id="content-aura" class="fade-in">
+                        <div class="flex items-start gap-6">
+                            <div class="p-4 bg-purple-100 text-purple-700 rounded-xl hidden md:block">
+                                <i data-lucide="wand-2" class="w-8 h-8"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Don't Prompt Pixels. Prompt Logic.</h3>
+                                <p class="text-gray-600 mb-4">The team didn't just ask for "a pretty website." They used
+                                    <strong>Structural Description Prompts</strong> to define behavior.</p>
+
+                                <div
+                                    class="bg-gray-900 rounded-lg p-5 text-gray-100 font-mono text-sm mb-6 border-l-4 border-purple-500">
+                                    <p class="text-gray-400 mb-2">// Example Prompt Structure</p>
+                                    <p class="mb-2"><span class="text-purple-400">Context:</span> "Create a landing page
+                                        for a DeFi app. Style reference: Cyberpunk minimalism."</p>
+                                    <p class="mb-2"><span class="text-blue-400">Logic:</span> "The 'Join Waitlist'
+                                        button must trigger a modal popup. The modal should have a z-50 index and a
+                                        backdrop-blur effect."</p>
+                                    <p><span class="text-green-400">Effect:</span> "Use the 'Speed' background effect
+                                        from the library with high intensity."</p>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-purple-50 p-4 rounded-lg">
+                                        <h4 class="font-bold text-purple-900 text-sm mb-1">The Recursive Loop</h4>
+                                        <p class="text-xs text-purple-700">Prompt → Review → Identify Layout Error →
+                                            Prompt to Fix. (Don't try to get it perfect in shot #1).</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                                        <h4 class="font-bold text-gray-900 text-sm mb-1">Key Insight</h4>
+                                        <p class="text-xs text-gray-600">Aura handles the HTML/CSS structure better than
+                                            a human, but YOU must define the "State Management" (what opens what).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend Content -->
+                    <div id="content-backend" class="hidden fade-in">
+                        <div class="flex items-start gap-6">
+                            <div class="p-4 bg-green-100 text-green-700 rounded-xl hidden md:block">
+                                <i data-lucide="database" class="w-8 h-8"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">The "Zero-Cost" Database</h3>
+                                <p class="text-gray-600 mb-4">JS wallet submission was complicated. The team pivoted to
+                                    <strong>Google Apps Script</strong> to turn a simple Google Sheet into a database.
+                                </p>
+
+                                <div class="bg-white border border-gray-200 rounded-lg p-5 mb-6 shadow-sm">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="px-3 py-1 bg-gray-100 rounded text-xs font-mono">Frontend (Aura)
+                                        </div>
+                                        <i data-lucide="arrow-right" class="w-4 h-4 text-gray-400"></i>
+                                        <div
+                                            class="px-3 py-1 bg-green-100 text-green-800 rounded text-xs font-mono font-bold">
+                                            Google Script API</div>
+                                        <i data-lucide="arrow-right" class="w-4 h-4 text-gray-400"></i>
+                                        <div
+                                            class="px-3 py-1 bg-green-500 text-white rounded text-xs font-mono font-bold">
+                                            Google Sheet</div>
+                                    </div>
+                                    <p class="text-sm text-gray-600">The <code>doPost(e)</code> script captures the
+                                        email/wallet and appends a row. No server maintenance required.</p>
+                                </div>
+
+                                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                                    <h4 class="font-bold text-yellow-800 text-sm">Why this is brilliant:</h4>
+                                    <p class="text-xs text-yellow-700">It decouples Marketing from Engineering. MKT can
+                                        own the "Waitlist" data completely without asking Devs to query a SQL database.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Debug Content -->
+                    <div id="content-debug" class="hidden fade-in">
+                        <div class="flex items-start gap-6">
+                            <div class="p-4 bg-red-100 text-red-700 rounded-xl hidden md:block">
+                                <i data-lucide="bug" class="w-8 h-8"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Visual Debugging (The Screenshot Trick)
+                                </h3>
+                                <p class="text-gray-600 mb-4">When the code looked "laggy" or wrong, they didn't write a
+                                    bug report. They took a picture.</p>
+
+                                <div class="grid md:grid-cols-3 gap-4 mb-6">
+                                    <div class="p-4 border rounded-lg text-center">
+                                        <i data-lucide="camera" class="w-8 h-8 mx-auto text-gray-400 mb-2"></i>
+                                        <h4 class="font-bold text-sm">1. Screenshot</h4>
+                                        <p class="text-xs text-gray-500">Capture the visual error.</p>
+                                    </div>
+                                    <div class="p-4 border rounded-lg text-center">
+                                        <i data-lucide="message-square" class="w-8 h-8 mx-auto text-blue-400 mb-2"></i>
+                                        <h4 class="font-bold text-sm">2. Prompt</h4>
+                                        <p class="text-xs text-gray-500">"Make the code match this image."</p>
+                                    </div>
+                                    <div class="p-4 border rounded-lg text-center bg-green-50 border-green-200">
+                                        <i data-lucide="check" class="w-8 h-8 mx-auto text-green-500 mb-2"></i>
+                                        <h4 class="font-bold text-sm">3. Fix</h4>
+                                        <p class="text-xs text-gray-500">Claude generates the CSS fix.</p>
+                                    </div>
+                                </div>
+
+                                <p class="text-sm text-gray-600"><strong>Result:</strong> Erik & Quan fixed UI lag and
+                                    tap effects without needing deep CSS knowledge.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Plan Section -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <i data-lucide="pen-tool" class="w-5 h-5 text-gray-700"></i>
+                    For Designers / Creative
+                </h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                        <div
+                            class="w-5 h-5 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xs font-bold mt-0.5">
+                            1</div>
+                        <p class="text-sm text-gray-600"><strong>Create a "Component Map":</strong> Don't just prompt a
+                            whole page. Prompt section by section (Hero, Features, Footer) to keep Aura accurate.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div
+                            class="w-5 h-5 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xs font-bold mt-0.5">
+                            2</div>
+                        <p class="text-sm text-gray-600"><strong>Define States in Plain English:</strong> Write down
+                            "What happens when I click?" before you start generating.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <i data-lucide="settings-2" class="w-5 h-5 text-gray-700"></i>
+                    For MKT Ops
+                </h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                        <div
+                            class="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs font-bold mt-0.5">
+                            1</div>
+                        <p class="text-sm text-gray-600"><strong>Save the Backend Script:</strong> Copy the Google Apps
+                            Script code into Notion. Use it for every future waitlist.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div
+                            class="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs font-bold mt-0.5">
+                            2</div>
+                        <p class="text-sm text-gray-600"><strong>Screenshot > Ticket:</strong> Stop writing long Jira
+                            tickets describing visual bugs. Just screenshot it and attach the Claude fix.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Interactive Review Button -->
+        <div class="col-span-2 text-center py-8">
+            <button onclick="startQuiz()"
+                class="bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2 mx-auto">
+                <i data-lucide="check-circle" class="w-5 h-5"></i>
+                Review MKT Workflow
+            </button>
+        </div>
+
+        <!-- Quiz Modal -->
+        <div id="quiz-modal"
+            class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
+            <div class="bg-white rounded-xl max-w-lg w-full p-8 shadow-2xl relative">
+                <button onclick="closeQuiz()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+
+                <h3 class="text-2xl font-bold mb-6">Quick Workflow Check</h3>
+
+                <!-- Question 1 -->
+                <div id="q1" class="quiz-step">
+                    <p class="font-medium text-gray-800 mb-4">1. What is the best way to handle visual bugs in this
+                        workflow?</p>
+                    <div class="space-y-2">
+                        <button onclick="checkAnswer('q1', 'a')"
+                            class="quiz-option w-full text-left p-3 border rounded-lg">A. Write a detailed Jira
+                            ticket</button>
+                        <button onclick="checkAnswer('q1', 'b')"
+                            class="quiz-option w-full text-left p-3 border rounded-lg">B. Screenshot + Ask Claude to
+                            fix</button>
+                    </div>
+                    <p id="feedback-q1" class="mt-2 text-sm font-bold hidden"></p>
+                </div>
+
+                <!-- Question 2 -->
+                <div id="q2" class="quiz-step hidden">
+                    <p class="font-medium text-gray-800 mb-4">2. Why did the team switch to Google Apps Script for the
+                        backend?</p>
+                    <div class="space-y-2">
+                        <button onclick="checkAnswer('q2', 'a')"
+                            class="quiz-option w-full text-left p-3 border rounded-lg">A. It's faster than
+                            Vercel</button>
+                        <button onclick="checkAnswer('q2', 'b')"
+                            class="quiz-option w-full text-left p-3 border rounded-lg">B. It avoids complex JS wallet
+                            handling</button>
+                    </div>
+                    <p id="feedback-q2" class="mt-2 text-sm font-bold hidden"></p>
+                </div>
+
+                <!-- Completion -->
+                <div id="q-finish" class="quiz-step hidden text-center">
+                    <div class="text-green-500 mb-4 flex justify-center"><i data-lucide="award" class="w-12 h-12"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">You're ready!</h4>
+                    <p class="text-gray-600 mb-6">Start building your next campaign page.</p>
+                    <button onclick="closeQuiz()" class="bg-gray-900 text-white px-6 py-2 rounded-lg">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center border-t border-gray-200 pt-8 pb-8">
+            <p class="text-gray-500 mb-4">Questions about the MKT pipeline?</p>
+            <a href="#"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm font-medium">
+                <i data-lucide="message-square" class="w-4 h-4"></i>
+                Discuss in MKT Thread
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function switchTab(tabName) {
+            const contents = ['aura', 'backend', 'debug'];
+            contents.forEach(c => {
+                document.getElementById('content-' + c).classList.add('hidden');
+                const tabBtn = document.getElementById('tab-' + c);
+                tabBtn.classList.remove('tab-active');
+                tabBtn.classList.add('tab-inactive');
+            });
+            document.getElementById('content-' + tabName).classList.remove('hidden');
+            const activeBtn = document.getElementById('tab-' + tabName);
+            activeBtn.classList.remove('tab-inactive');
+            activeBtn.classList.add('tab-active');
+        }
+
+        function startQuiz() {
+            document.getElementById('quiz-modal').classList.remove('hidden');
+            document.getElementById('q1').classList.remove('hidden');
+            document.getElementById('q2').classList.add('hidden');
+            document.getElementById('q-finish').classList.add('hidden');
+        }
+
+        function closeQuiz() {
+            document.getElementById('quiz-modal').classList.add('hidden');
+        }
+
+        function checkAnswer(qId, answer) {
+            const correctAnswers = { 'q1': 'b', 'q2': 'b' };
+            const feedback = document.getElementById('feedback-' + qId);
+            const isCorrect = answer === correctAnswers[qId];
+
+            feedback.classList.remove('hidden');
+            if (isCorrect) {
+                feedback.textContent = "Correct! ✅ ";
+                feedback.className = "mt-2 text-sm font-bold text-green-600";
+                setTimeout(() => {
+                    document.getElementById(qId).classList.add('hidden');
+                    const nextMap = { 'q1': 'q2', 'q2': 'q-finish' };
+                    document.getElementById(nextMap[qId]).classList.remove('hidden');
+                    feedback.classList.add('hidden');
+                }, 1000);
+            } else {
+                feedback.textContent = "Try again ❌ ";
+                feedback.className = "mt-2 text-sm font-bold text-red-600";
+            }
+        }
+    </script>
+</body>
+
+</html>

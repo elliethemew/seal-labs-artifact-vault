@@ -1,0 +1,539 @@
+:root {
+  /* Brand Colors - Deep & Premium */
+  --color-bg: #0a0a0a;
+  --color-bg-subtle: #111111;
+  --color-surface: #1a1a1a;
+  --color-surface-hover: #252525;
+  --color-border: #333333;
+
+  --color-primary: #e63946;
+  /* Seal Labs Red/Burgundy accent */
+  --color-primary-dim: #9e2a33;
+
+  --color-text-main: #ededed;
+  --color-text-muted: #a1a1a1;
+
+  /* Functional Colors */
+  --badge-mkt: #70e000;
+  --badge-eng: #00b4d8;
+  --badge-product: #fb8500;
+  --badge-hr: #e0aaff;
+  /* Light Purple for HR */
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Utilities */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.badge-engineering {
+  background-color: var(--badge-eng);
+}
+
+.badge-mkt {
+  background-color: var(--badge-mkt);
+}
+
+.badge-product {
+  background-color: var(--badge-product);
+}
+
+.badge-hr {
+  background-color: var(--badge-hr);
+  color: #000;
+}
+
+/* Header */
+.app-header {
+  padding: var(--spacing-xl) 0;
+  margin-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-xs);
+}
+
+/* Filters */
+/* Filters */
+.filters-bar {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-input,
+.filter-select {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-main);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+}
+
+.search-input {
+  min-width: 250px;
+}
+
+.filter-select {
+  min-width: 150px;
+}
+
+.search-input:focus,
+.filter-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* Tag Filter Component */
+.tag-filter-container {
+  position: relative;
+}
+
+.tag-dropdown-wrapper {
+  position: relative;
+}
+
+.tag-dropdown-trigger {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-main);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  min-width: 200px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.tag-dropdown-trigger:hover,
+.tag-dropdown-trigger.open {
+  border-color: var(--color-text-muted);
+}
+
+.tag-dropdown-trigger .arrow {
+  font-size: 10px;
+  margin-left: 10px;
+  opacity: 0.6;
+}
+
+.tag-popover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  width: 260px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tag-search-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  padding: 12px;
+  color: var(--color-text-main);
+  font-size: 13px;
+  outline: none;
+}
+
+.tag-search-input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+.tag-list {
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.tag-option {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.tag-option:hover {
+  background: var(--color-surface-hover);
+}
+
+.tag-option input {
+  margin-right: 10px;
+  accent-color: var(--color-primary);
+}
+
+.tag-name {
+  font-size: 13px;
+  flex-grow: 1;
+}
+
+.tag-count {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.no-tags {
+  padding: 16px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.show-more-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 12px;
+  color: var(--color-primary);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.show-more-btn:hover {
+  background: var(--color-surface-hover);
+}
+
+/* Chips */
+.active-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+  /* Above the trigger or we can move it inside filters-bar logic in App */
+  position: absolute;
+  /* If we want it outside, layout differs. Let's make it flow in parent */
+}
+
+/* Re-adjusting structure: In App.jsx, I didn't change layout enough for chips to be 'outside' the dropdown but 'inside' the flex row nicely.*/
+/* Wait, in TagFilter.jsx I put chips inside .tag-filter-container. */
+.tag-filter-container .active-chips {
+  position: absolute;
+  top: -36px;
+  /* HACK: Move it above the input for now, or just let it flow? */
+  /* Better: Let's actually display selected tags INSIDE the trigger or let them flow in parent */
+  display: none;
+  /* Hiding for a sec to fix layout strategy */
+}
+
+/* FIX: Let's remove absolute positioning and just let chips render. 
+   In TagFilter.jsx, I placed chips inside `tag-filter-container`. 
+   Let's make tag-filter-container flex-col? No, that breaks the row alignment.
+   
+   Better Design:
+   Show chips below the filters bar? Or inline?
+   The user asked: "Show them as chips outside the dropdown... Like: Selected: ai-workflow x"
+   
+   Let's display chips INLINE next to the Clear button or Above logic.
+   For now, I'll update the css for chips to be usable.
+*/
+
+.active-chips-display {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  margin-left: 16px;
+}
+
+.tag-chip {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-main);
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tag-chip:hover {
+  border-color: var(--color-primary);
+}
+
+.chip-x {
+  color: var(--color-text-muted);
+  font-weight: bold;
+}
+
+.tag-chip:hover .chip-x {
+  color: var(--color-primary);
+}
+
+.clear-btn {
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.clear-btn:hover {
+  color: var(--color-text-main);
+  text-decoration: underline;
+}
+
+/* Grid */
+.artifact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  padding-bottom: var(--spacing-xl);
+}
+
+/* Card */
+.artifact-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  transition: transform 0.2s, border-color 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.artifact-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-text-muted);
+  background: var(--color-surface-hover);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-sm);
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  padding-right: var(--spacing-sm);
+}
+
+.card-desc {
+  font-size: 14px;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.card-footer {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-sm);
+}
+
+.tags-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.meta-row {
+  font-size: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+}
+
+.modal-content {
+  background: var(--color-bg);
+  width: 95vw;
+  height: 90vh;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.modal-sidebar {
+  width: 320px;
+  border-right: 1px solid var(--color-border);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-lg);
+}
+
+.sidebar-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.close-btn {
+  font-size: 24px;
+  color: var(--color-text-muted);
+  padding: 4px;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: var(--color-text-main);
+}
+
+.meta-item {
+  margin-bottom: var(--spacing-md);
+}
+
+.meta-item label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-desc p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-lg);
+}
+
+.sidebar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--color-text-main);
+  color: var(--color-bg);
+  padding: 12px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.preview-container {
+  flex-grow: 1;
+  background: #ffffff;
+  position: relative;
+}
+
+.preview-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
