@@ -69,10 +69,13 @@ function generateCatalog() {
                 throw new Error('Missing index.html');
             }
 
+            // Use BASE_PATH from environment or default to root
+            const basePath = process.env.BASE_PATH || '';
+
             catalog.push({
                 ...meta,
                 id,
-                path: `/artifacts/${id}/index.html`
+                path: `${basePath}/artifacts/${id}/index.html`
             });
 
         } catch (err) {
