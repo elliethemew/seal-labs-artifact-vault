@@ -60,17 +60,7 @@ const TagFilter = ({ allTags, artifacts, selectedTags, onTagChange }) => {
 
     return (
         <div className="tag-filter-container" ref={dropdownRef}>
-            {/* Chips Area outside */}
-            {selectedTags.length > 0 && (
-                <div className="active-chips">
-                    <span className="chips-label">Selected:</span>
-                    {selectedTags.map(tag => (
-                        <button key={tag} className="tag-chip" onClick={() => removeTag(tag)}>
-                            {tag} <span className="chip-x">×</span>
-                        </button>
-                    ))}
-                </div>
-            )}
+
 
             {/* Trigger */}
             <div className="tag-dropdown-wrapper">
@@ -79,7 +69,9 @@ const TagFilter = ({ allTags, artifacts, selectedTags, onTagChange }) => {
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     <span>{selectedTags.length > 0 ? `${selectedTags.length} tags selected` : 'Filter by Tags'}</span>
-                    <span className="arrow">▼</span>
+                    <svg className="icon-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
                 </div>
 
                 {/* Popover */}
