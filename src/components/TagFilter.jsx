@@ -54,9 +54,7 @@ const TagFilter = ({ allTags, artifacts, selectedTags, onTagChange }) => {
         }
     };
 
-    const removeTag = (tag) => {
-        onTagChange(selectedTags.filter(t => t !== tag));
-    };
+
 
     return (
         <div className="tag-filter-container" ref={dropdownRef}>
