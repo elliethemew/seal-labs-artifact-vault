@@ -14,7 +14,8 @@ function App() {
   const [selectedArtifact, setSelectedArtifact] = useState(null);
 
   useEffect(() => {
-    fetch('/catalog.json')
+    const baseUrl = import.meta.env.BASE_URL || '/';
+    fetch(`${baseUrl}catalog.json`)
       .then(res => res.json())
       .then(data => {
         setArtifacts(data);
@@ -61,7 +62,7 @@ function App() {
             <div className="logo-section">
               <div className="brand-logo-wrap">
                 <img
-                  src="/assets/logo.png"
+                  src={`${import.meta.env.BASE_URL}assets/logo.png`}
                   alt="Seal Labs Logo"
                   className="app-logo"
                   onError={(e) => e.target.style.display = 'none'}
