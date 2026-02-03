@@ -968,3 +968,166 @@ button {
 .copyright:hover {
     color: rgba(255, 255, 255, 0.5);
 }
+/* ========================================
+   MOBILE RESPONSIVENESS (iPhone & Mobile)
+   ======================================== */
+
+@media (max-width: 640px) {
+  /* Header Mobile */
+  .app-header {
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+  }
+
+  .app-header h1 {
+    font-size: 18px;
+  }
+
+  .subtitle {
+    font-size: 11px;
+  }
+
+  .brand-logo-wrap {
+    width: 32px;
+    height: 32px;
+  }
+
+  .app-logo {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Filters Mobile */
+  .filters-bar {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .search-input {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  /* Grid Mobile - Single Column */
+  .artifact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    padding-top: 12px;
+    margin-top: 12px;
+  }
+
+  /* Card Mobile */
+  .artifact-card {
+    padding: var(--spacing-md);
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .card-description {
+    font-size: 13px;
+  }
+
+  /* Modal Mobile */
+  .modal-content {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+
+  .modal-sidebar {
+    width: 100%;
+    max-height: 40%;
+    overflow-y: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .sidebar-header h2 {
+    font-size: 18px;
+  }
+
+  .metadata-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-container {
+    flex: 1;
+  }
+
+  /* Footer Mobile */
+  .app-footer {
+    padding: 16px 20px;
+  }
+
+  .copyright {
+    font-size: 10px;
+  }
+
+  /* Container Mobile */
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+/* iPhone Specific (Safe Area) */
+@supports (padding: max(0px)) {
+  .app-header {
+    padding-left: max(var(--spacing-lg), env(safe-area-inset-left));
+    padding-right: max(var(--spacing-lg), env(safe-area-inset-right));
+  }
+
+  .app-footer {
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+    padding-left: max(32px, env(safe-area-inset-left));
+    padding-right: max(32px, env(safe-area-inset-right));
+  }
+
+  .container {
+    padding-left: max(var(--spacing-md), env(safe-area-inset-left));
+    padding-right: max(var(--spacing-md), env(safe-area-inset-right));
+  }
+}
+
+/* Tablet (iPad) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .artifact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modal-sidebar {
+    width: 320px;
+  }
+}
+
+/* Touch Improvements */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .artifact-card {
+    padding: var(--spacing-lg);
+  }
+
+  .close-btn,
+  .copy-link-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Remove hover effects on touch devices */
+  .artifact-card:hover {
+    transform: none;
+  }
+
+  .copyright:hover {
+    color: rgba(255, 255, 255, 0.25);
+  }
+}
