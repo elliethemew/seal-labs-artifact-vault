@@ -17,28 +17,6 @@
     "path": "/artifacts/engineering/2026-01-29_Chatbot to Agentic Workflow/index.html"
   },
   {
-    "title": "DRN Engineering Overview - Derivatives Risk Network",
-    "function": "HR",
-    "description": "Premium recruitment page showcasing DRN's bilateral credit intermediation infrastructure for tokenized derivatives markets. Built for hiring founding engineers, featuring technical architecture, core systems breakdown, and team profiles.",
-    "tags": [
-      "fintech",
-      "derivatives",
-      "clearing",
-      "blockchain",
-      "defi",
-      "recruitment",
-      "engineering",
-      "infrastructure",
-      "canton-network",
-      "seed-round"
-    ],
-    "source": "claude",
-    "author": "Ellie",
-    "createdAt": "2026-02-03",
-    "id": "hr/2026-02-03_DRN Recruitment",
-    "path": "/artifacts/hr/2026-02-03_DRN Recruitment/index.html"
-  },
-  {
     "title": "Research: AI Adoption & The 'Leapfrog' Effect",
     "function": "HR",
     "description": "Analysis of how SEA youth use AI for economic survival (coding, freelancing) rather than just leisure. Highlights the 'Faceless Creator' economy using Midjourney/CapCut.",
