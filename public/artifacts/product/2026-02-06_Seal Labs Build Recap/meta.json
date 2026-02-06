@@ -1,0 +1,15 @@
+{
+    "title": "Seal Labs Artifact Vault — Build Recap",
+    "function": "Product",
+    "description": "Comprehensive build recap documenting the AI-assisted workflow used to create the Artifact Vault. Covers the iterative process, tool roles (GPT, Antigravity, Gemini/Claude), and key milestones shipped.",
+    "tags": [
+        "ai-workflow",
+        "build-process",
+        "antigravity",
+        "product-development",
+        "mvp"
+    ],
+    "source": "Gemini Canvas",
+    "author": "Ellie",
+    "createdAt": "2026-02-06"
+}

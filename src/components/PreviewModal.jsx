@@ -24,7 +24,7 @@ const PreviewModal = ({ artifact, onClose }) => {
     }, [onClose]);
 
     const handleCopyLink = () => {
-        const fullUrl = `${window.location.origin}${artifact.path}`;
+        const fullUrl = `${window.location.origin}/seal-labs-artifact-vault${artifact.path}`;
         navigator.clipboard.writeText(fullUrl).then(() => {
             setCopyFeedback('Copied!');
             setTimeout(() => setCopyFeedback(''), 2000);
@@ -82,7 +82,7 @@ const PreviewModal = ({ artifact, onClose }) => {
 
                     <div className="sidebar-actions mt-auto gap-2 flex flex-col">
                         <a
-                            href={artifact.path}
+                            href={`/seal-labs-artifact-vault${artifact.path}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-primary w-full"
@@ -120,7 +120,7 @@ const PreviewModal = ({ artifact, onClose }) => {
 
                 <div className="preview-container">
                     <iframe
-                        src={artifact.path}
+                        src={`/seal-labs-artifact-vault${artifact.path}`}
                         title={artifact.title}
                         sandbox="allow-scripts allow-same-origin"
                         className="preview-frame"
