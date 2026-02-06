@@ -35,8 +35,6 @@ jobs:
 
       - name: Generate Catalog
         run: npm run scan:artifacts
-        env:
-          BASE_PATH: /seal-labs-artifact-vault
 
       - name: Build
         run: npm run build
